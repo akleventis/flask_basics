@@ -1,1 +1,3 @@
-curl --location --request GET 'http://localhost:5000/student/alex'
+curl --location --request GET 'http://localhost:5000/student/finnthehuman'
+
+/Users/alexleventis/dev/flask/flask_basics/venv/bin/python -m pip install -U {name}
