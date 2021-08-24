@@ -1,3 +1,12 @@
-curl --location --request GET 'http://localhost:5000/student/finnthehuman'
+curl --location --request GET 'http://localhost:5000/items'
+
+curl --location --request GET 'http://localhost:5000/item/grasssword' \
+--header 'Authorization: JWT eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2Mjk3NzEwNzYsImlhdCI6MTYyOTc3MDc3NiwibmJmIjoxNjI5NzcwNzc2LCJpZGVudGl0eSI6MX0.eKIa2KAeyNsIUGYaRYrnMm4Y3E0TS0E3yAaYJprFsUE'
+
+curl --location --request POST 'http://localhost:5000/item/grasssword' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "price": 500
+}'
 
 /Users/alexleventis/dev/flask/flask_basics/venv/bin/python -m pip install -U {name}
