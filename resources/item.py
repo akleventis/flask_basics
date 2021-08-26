@@ -7,7 +7,6 @@ from models.item import ItemModel
 class Item(Resource):
     parser = reqparse.RequestParser()
     parser.add_argument('price', type=float, required=True, help="This field cannot be nil")
-    parser.add_argument('store_id', type=int, required=True, help="Every item needs a store id")
 
     @jwt_required()
     def get(self, name):
@@ -26,7 +25,7 @@ class Item(Resource):
         
         data = Item.parser.parse_args()
 
-        item = ItemModel(name, data['price'], data['store_id'])
+        item = ItemModel(name, data['price'])
 
         try:
             item.save_to_db()
@@ -51,10 +50,9 @@ class Item(Resource):
         item = ItemModel.find_by_name(name)
 
         if item is None:
-            item = ItemModel(name, data['price'], data['store_id'])
+            item = ItemModel(name, data['price'])
         else:
             item.price = data['price']
-            item.store_id = data['store_id']
         item.save_to_db()
         return item.json()
 

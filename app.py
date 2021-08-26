@@ -8,7 +8,6 @@ from db import db
 from security import authenticate, identity
 from resources.user import RegisterUser
 from resources.item import Item, ItemList
-from resources.store import Store, StoreList
 
 app = Flask(__name__)
 # Where to find data.db file
@@ -40,8 +39,6 @@ def response_handler(access_token, identity):
 api.add_resource(Item, '/item/<string:name>') 
 api.add_resource(ItemList, '/items')
 api.add_resource(RegisterUser, '/register')
-api.add_resource(Store, '/store/<string:name>')
-api.add_resource(StoreList, '/stores')
 
 if __name__ == '__main__':
     db.init_app(app)
